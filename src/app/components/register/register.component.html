@@ -1,0 +1,107 @@
+<div class="w-75 mx-auto py-4">
+  <h4>Register Now :</h4>
+  <form (ngSubmit)="handleRegister(registerForm)" [formGroup]="registerForm">
+    <h2>{{ registerForm.get("name")?.getError("minlength") | json }}</h2>
+    <label for="name">Name:</label>
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control mb-2"
+      id="name"
+    />
+    @if (registerForm.get("name")?.errors && registerForm.get("name")?.touched)
+    {
+    <div class="alert alert-danger">
+      @if (registerForm.get("name")?.getError("minlength")) {
+      <p class="m-0">Name minLength is 3</p>
+      } @else if (registerForm.get("name")?.getError("maxlength")) {
+      <p class="m-0">Name maxLength is 10</p>
+      }@else if (registerForm.get("name")?.getError("required")) {
+      <p class="m-0">Name is Required</p>
+      }
+    </div>
+    }
+
+    <label for="email">Email:</label>
+    <input
+      formControlName="email"
+      type="email"
+      class="form-control mb-2"
+      id="email"
+    />
+    @if (registerForm.get("email")?.errors &&
+    registerForm.get("email")?.touched) {
+    <div class="alert alert-danger">
+      @if (registerForm.get("email")?.getError("email")) {
+      <p class="m-0">Email is not available</p>
+      } @else if (registerForm.get("email")?.getError("required")) {
+      <p class="m-0">Email is Required</p>
+      }
+    </div>
+    }
+    <label for="password">Password:</label>
+    <input
+      formControlName="password"
+      type="password"
+      class="form-control mb-2"
+      id="password"
+    />
+    @if (registerForm.get("password")?.errors &&
+    registerForm.get("password")?.touched) {
+    <div class="alert alert-danger">
+      @if (registerForm.get("password")?.getError("pattern")) {
+      <p class="m-0">
+        Password must start with uppercase then from 3 to 10 characters
+      </p>
+      } @else if (registerForm.get("password")?.getError("required")) {
+      <p class="m-0">Password is Required</p>
+      }
+    </div>
+    }
+    <label for="rePassword">Re-Password:</label>
+
+    <input
+      formControlName="rePassword"
+      type="password"
+      class="form-control mb-2"
+      id="rePassword"
+    />
+    @if (registerForm.get("rePassword")?.errors &&
+    registerForm.get("rePassword")?.touched) {
+    <div class="alert alert-danger">
+      @if (registerForm.get("rePassword")?.getError("pattern")) {
+      <p class="m-0">
+        Re-Password must start with uppercase then from 3 to 10 charcaters
+      </p>
+      } @else if (registerForm.get("rePassword")?.getError("required")) {
+      <p class="m-0">Re-Password is Required</p>
+      }
+    </div>
+    }
+    <label for="phone">Phone:</label>
+    <input
+      formControlName="phone"
+      type="tel"
+      class="form-control mb-2"
+      id="phone"
+    />
+    @if (registerForm.get("phone")?.errors &&
+    registerForm.get("phone")?.touched) {
+    <div class="alert alert-danger">
+      @if (registerForm.get("phone")?.getError("pattern")) {
+      <p class="m-0">Enter a valid Egyption Phone Number</p>
+      } @else if (registerForm.get("phone")?.getError("required")) {
+      <p class="m-0">Phone is Required</p>
+      }
+    </div>
+    }
+
+    <button
+      [disabled]="registerForm.invalid"
+      type="submit"
+      class="btn d-block bg-main border-none border-0 text-white me-auto"
+    >
+      Register
+    </button>
+  </form>
+</div>
