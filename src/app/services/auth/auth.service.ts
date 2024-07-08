@@ -13,4 +13,10 @@ export class AuthService {
       userData
     );
   }
+  login(userData: object): Observable<any> {
+    return this.httpClient.post(
+      'https://ecommerce.routemisr.com/api/v1/auth/signin',
+      userData
+    );
+  }
 }
