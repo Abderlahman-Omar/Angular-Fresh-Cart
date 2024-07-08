@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +9,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
+  isLoading: boolean = false;
+  apiError: string = '';
+  constructor(private authService: AuthService, private router: Router) {}
   registerForm: FormGroup = new FormGroup({
     name: new FormControl(null, [
       Validators.required,
@@ -29,6 +34,20 @@ export class RegisterComponent {
   });
 
   handleRegister(registerForm: FormGroup) {
-    console.log(registerForm.value);
+    this.isLoading = true;
+    if (registerForm.valid) {
+      this.authService.register(registerForm.value).subscribe({
+        next: (response) => {
+          if (response.message === 'success') {
+            this.isLoading = false;
+            this.router.navigate(['/login']);
+          }
+        },
+        error: (err) => {
+          this.isLoading = false;
+          this.apiError = err.error.message;
+        },
+      });
+    }
   }
 }

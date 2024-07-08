@@ -1,7 +1,10 @@
 <div class="w-75 mx-auto py-4">
   <h4>Register Now :</h4>
+  @if (apiError!='') {
+  <div class="alert alert-danger">{{ apiError }}</div>
+
+  }
   <form (ngSubmit)="handleRegister(registerForm)" [formGroup]="registerForm">
-    <h2>{{ registerForm.get("name")?.getError("minlength") | json }}</h2>
     <label for="name">Name:</label>
     <input
       formControlName="name"
@@ -101,7 +104,13 @@
       type="submit"
       class="btn d-block bg-main border-none border-0 text-white me-auto"
     >
-      Register
+      @if (isLoading) {
+      <i class="fas fa-spinner fa-spin"></i>
+
+      }@else {
+      <span>Register</span>
+
+      }
     </button>
   </form>
 </div>
