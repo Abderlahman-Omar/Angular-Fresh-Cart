@@ -1,22 +1,28 @@
 <div class="row">
   @for (product of products; track $index) {
   <div class="col-md-2">
-    <div class="product">
-      <img class="w-100" src="{{ product.imageCover }}" alt="" />
-      <span class="text-main fw-bold font-sm">{{ product.category.name }}</span>
-      <h3 class="h6 fw-bolder">
-        {{ product.title.split(" ").slice(0, 2).join(" ") }}
-      </h3>
-      <div class="d-flex align-items-center justify-content-between">
-        <span class="text-muted fw-bold font-sm">{{ product.price }} EGP</span>
-        <div>
-          <span class="text-muted fw-bold font-sm">{{
-            product.ratingsAverage
-          }}</span>
-          <i class="fas fa-star rating-color"></i>
+    <div class="product px-2 py-4">
+      <a [routerLink]="['/productdetails', product._id]">
+        <img class="w-100" src="{{ product.imageCover }}" alt="" />
+        <span class="text-main fw-bold font-sm">{{
+          product.category.name
+        }}</span>
+        <h3 class="h6 fw-bolder">
+          {{ product.title.split(" ").slice(0, 2).join(" ") }}
+        </h3>
+        <div class="d-flex align-items-center justify-content-between">
+          <span class="text-muted fw-bold font-sm"
+            >{{ product.price }} EGP</span
+          >
+          <div>
+            <span class="text-muted fw-bold font-sm">{{
+              product.ratingsAverage
+            }}</span>
+            <i class="fas fa-star rating-color"></i>
+          </div>
         </div>
-      </div>
-      <button class="btn bg-main text-white w-100 my-2">+ Add</button>
+        <button class="btn bg-main text-white w-100 my-2">+ Add</button></a
+      >
     </div>
   </div>
   }

@@ -13,4 +13,9 @@ export class ProductsService {
       'https://ecommerce.routemisr.com/api/v1/products'
     );
   }
+  getSingleProducts(id: string): Observable<any> {
+    return this.httpClient.get(
+      `https://ecommerce.routemisr.com/api/v1/products/${id}`
+    );
+  }
 }

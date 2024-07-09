@@ -15,6 +15,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     NotfoundComponent,
     RegisterComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,
