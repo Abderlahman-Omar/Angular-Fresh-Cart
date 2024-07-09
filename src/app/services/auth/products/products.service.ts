@@ -28,4 +28,12 @@ export class ProductsService {
       `https://ecommerce.routemisr.com/api/v1/categories/${id}`
     );
   }
+  getBrands(): Observable<any> {
+    return this.httpClient.get('https://ecommerce.routemisr.com/api/v1/brands');
+  }
+  getSingleBrand(id: string): Observable<any> {
+    return this.httpClient.get(
+      `https://ecommerce.routemisr.com/api/v1/brands/${id}`
+    );
+  }
 }

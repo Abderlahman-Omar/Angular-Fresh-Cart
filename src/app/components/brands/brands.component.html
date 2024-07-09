@@ -1,1 +1,8 @@
-<p>brands works!</p>
+<owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let brand of brands">
+    <ng-template carouselSlide>
+      <img height="200" [src]="brand.image" [alt]="" [title]="" />
+      <h4 class="h6 fw-bolder">{{ brand.name }}</h4>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
