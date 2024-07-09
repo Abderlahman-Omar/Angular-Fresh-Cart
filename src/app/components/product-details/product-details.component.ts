@@ -28,8 +28,8 @@ export class ProductDetailsComponent implements OnInit {
   }
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
-    touchDrag: false,
+    mouseDrag: true,
+    touchDrag: true,
     pullDrag: false,
     dots: false,
     navSpeed: 700,
@@ -39,13 +39,13 @@ export class ProductDetailsComponent implements OnInit {
         items: 1,
       },
       400: {
-        items: 2,
+        items: 1,
       },
       740: {
-        items: 3,
+        items: 1,
       },
       940: {
-        items: 4,
+        items: 1,
       },
     },
     nav: true,
