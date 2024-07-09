@@ -26,6 +26,8 @@ export class LoginComponent {
       this.authService.login(loginForm.value).subscribe({
         next: (response) => {
           if (response.message === 'success') {
+            localStorage.setItem('userToken', response.token);
+            this.authService.decodeUserData();
             this.isLoading = false;
             this.router.navigate(['/home']);
           }
