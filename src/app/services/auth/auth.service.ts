@@ -7,7 +7,11 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AuthService {
   userData = new BehaviorSubject(null);
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+    if (localStorage.getItem('userToken') !== null) {
+      this.decodeUserData();
+    }
+  }
 
   decodeUserData() {
     let encodedToken = JSON.stringify(localStorage.getItem('userToken'));
