@@ -1,6 +1,13 @@
 <div class="row align-items-center py-4">
   <div class="col-md-4">
-    <img class="w-100" src="{{ productDetails?.imageCover }}" alt="" />
+    <!-- <img class="w-100" src="{{ productDetails?.imageCover }}" alt="" /> -->
+    <owl-carousel-o [options]="customOptions">
+      @for (image of productDetails?.images; track $index) {
+      <ng-template carouselSlide>
+        <img class="w-100" src="{{ image }}" alt="" />
+      </ng-template>
+      }
+    </owl-carousel-o>
   </div>
   <div class="col-md-8">
     <h2 class="h4 fw-bolder mb-2">{{ productDetails?.title }}</h2>
