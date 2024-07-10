@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ProductsService } from '../../services/auth/products/products.service';
+import { Brand } from '../../interfaces/brand';
 
 @Component({
   selector: 'app-brands',
@@ -8,7 +9,7 @@ import { ProductsService } from '../../services/auth/products/products.service';
   styleUrl: './brands.component.scss',
 })
 export class BrandsComponent implements OnInit {
-  brands: any[] = [];
+  brands: Brand[] = [];
 
   constructor(private productsService: ProductsService) {}
 

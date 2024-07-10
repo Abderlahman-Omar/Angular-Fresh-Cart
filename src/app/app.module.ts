@@ -13,7 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { RouterModule } from '@angular/router';
@@ -23,6 +23,7 @@ import { MainsliderComponent } from './components/mainslider/mainslider.componen
 import { ProductsComponent } from './components/products/products.component';
 import { BuyPipe } from './pipes/buy/buy.pipe';
 import { SeemorePipe } from './pipes/seemore/seemore.pipe';
+import { SearchPipe } from './pipes/search/search.pipe';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SeemorePipe } from './pipes/seemore/seemore.pipe';
     ProductsComponent,
     BuyPipe,
     SeemorePipe,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { SeemorePipe } from './pipes/seemore/seemore.pipe';
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

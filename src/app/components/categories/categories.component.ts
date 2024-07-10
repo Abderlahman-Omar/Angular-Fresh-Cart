@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/auth/products/products.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Category } from '../../interfaces/product/category';
 
 @Component({
   selector: 'app-categories',
@@ -8,7 +9,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrl: './categories.component.scss',
 })
 export class CategoriesComponent implements OnInit {
-  categories: any[] = [];
+  categories: Category[] = [];
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {

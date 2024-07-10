@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/auth/products/products.service';
 import { Router } from '@angular/router';
+import { Product } from '../../interfaces/product/product';
 
 @Component({
   selector: 'app-products',
@@ -8,8 +9,9 @@ import { Router } from '@angular/router';
   styleUrl: './products.component.scss',
 })
 export class ProductsComponent implements OnInit {
-  products: any[] = [];
+  products: Product[] = [];
   productId: any;
+  searchTerm: string = '';
   constructor(
     private productsService: ProductsService,
     private router: Router
