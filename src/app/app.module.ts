@@ -21,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MainsliderComponent } from './components/mainslider/mainslider.component';
 import { ProductsComponent } from './components/products/products.component';
+import { BuyPipe } from './pipes/buy/buy.pipe';
+import { SeemorePipe } from './pipes/seemore/seemore.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { ProductsComponent } from './components/products/products.component';
     ProductDetailsComponent,
     MainsliderComponent,
     ProductsComponent,
+    BuyPipe,
+    SeemorePipe,
   ],
   imports: [
     BrowserModule,

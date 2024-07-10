@@ -8,12 +8,12 @@
           product.category.name
         }}</span>
         <h3 class="h6 fw-bolder">
-          {{ product.title.split(" ").slice(0, 2).join(" ") }}
+          {{ product.title | seemore : 2 }}
         </h3>
         <div class="d-flex align-items-center justify-content-between">
-          <span class="text-muted fw-bold font-sm"
-            >{{ product.price }} EGP</span
-          >
+          <span class="text-muted fw-bold font-sm">{{
+            product.price | currency : "EGP"
+          }}</span>
           <div>
             <span class="text-muted fw-bold font-sm">{{
               product.ratingsAverage
