@@ -68,6 +68,9 @@
             >Logout</span
           >
         </li>
+        <li *ngIf="isLogin" class="nav-item">
+          <a routerLink="settings" class="nav-link cursor-pointer">Settings</a>
+        </li>
       </ul>
     </div>
   </div>

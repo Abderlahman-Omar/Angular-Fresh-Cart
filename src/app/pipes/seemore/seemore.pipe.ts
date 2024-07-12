@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SeemorePipe implements PipeTransform {
   transform(description: string, limit: number): string {
-    return description.split(' ').slice(0, limit).join(' ');
+    return description?.split(' ').slice(0, limit).join(' ');
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/auth/products/products.service';
 import { Router } from '@angular/router';
 import { Product } from '../../interfaces/product/product';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +15,8 @@ export class ProductsComponent implements OnInit {
   searchTerm: string = '';
   constructor(
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private cartService: CartService
   ) {}
   ngOnInit(): void {
     this.productsService.getProducts().subscribe({
@@ -22,6 +24,12 @@ export class ProductsComponent implements OnInit {
         this.products = response.data;
         // console.log(this.products);
       },
+    });
+  }
+  addToCart(productId: string) {
+    this.cartService.addToCart(productId).subscribe({
+      next: (response) => console.log(response),
+      error: (error) => console.log(error),
     });
   }
 }

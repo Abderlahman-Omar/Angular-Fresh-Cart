@@ -21,5 +21,6 @@ export class MainsliderComponent {
       },
     },
     nav: true,
+    autoplay: true,
   };
 }
