@@ -40,4 +40,15 @@ export class CartService {
       }
     );
   }
+  updateCartProductQuantity(productId: string, count: number): Observable<any> {
+    return this.httpClient.put(
+      `https://ecommerce.routemisr.com/api/v1/cart/${productId}`,
+      {
+        count: count,
+      },
+      {
+        headers: this.headers,
+      }
+    );
+  }
 }

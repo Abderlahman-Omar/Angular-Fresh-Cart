@@ -29,4 +29,14 @@ export class CartComponent implements OnInit {
       error: (error) => console.log(error),
     });
   }
+  updateItemCount(productId: string, count: number) {
+    this.cartService.updateCartProductQuantity(productId, count).subscribe({
+      next: (response) => {
+        console.log(response);
+
+        this.cartDetails = response.data;
+      },
+      error: (error) => console.log(error),
+    });
+  }
 }
