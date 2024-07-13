@@ -23,4 +23,21 @@ export class CartService {
       }
     );
   }
+  getLoggedUserCart(): Observable<any> {
+    return this.httpClient.get(
+      `https://ecommerce.routemisr.com/api/v1/cart`,
+
+      {
+        headers: this.headers,
+      }
+    );
+  }
+  removeSpecificCartItem(productId: string): Observable<any> {
+    return this.httpClient.delete(
+      `https://ecommerce.routemisr.com/api/v1/cart/${productId}`,
+      {
+        headers: this.headers,
+      }
+    );
+  }
 }

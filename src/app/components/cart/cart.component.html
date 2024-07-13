@@ -1,1 +1,29 @@
-<p>cart works!</p>
+<div class="bg-main-light p-4 my-4">
+  <h3>Shop Cart</h3>
+  <h6 class="text-main">
+    Total Price:{{ cartDetails?.totalCartPrice | currency : "EGP" }}
+  </h6>
+  @for (product of cartDetails?.products; track $index) {
+  <div class="row border-bottom py-3 align-items-center">
+    <div class="col-md-1">
+      <img class="w-100" src="{{ product.product.imageCover }}" alt="" />
+    </div>
+    <div class="col-md-11 d-flex justify-content-between">
+      <div>
+        <h6>{{ product.product.title | seemore : 2 }}</h6>
+        <h6 class="text-main">{{ product.price | currency : "EGP" }}</h6>
+        <button (click)="removeItem(product.product._id)" class="btn m-0 p-0">
+          <i class="text-main fa-regular fa-trash-can"></i>
+          Remove
+        </button>
+      </div>
+      <div>
+        <button class="btn border-main btn-sm">+</button>
+        <span class="mx-2">{{ product.count }}</span>
+        <button class="btn border-main btn-sm">-</button>
+      </div>
+    </div>
+  </div>
+
+  }
+</div>

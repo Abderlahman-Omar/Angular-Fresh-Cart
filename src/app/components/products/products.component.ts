@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ProductsService } from '../../services/auth/products/products.service';
 import { Router } from '@angular/router';
 import { Product } from '../../interfaces/product/product';
@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
     private router: Router,
     private cartService: CartService
   ) {}
+
   ngOnInit(): void {
     this.productsService.getProducts().subscribe({
       next: (response) => {

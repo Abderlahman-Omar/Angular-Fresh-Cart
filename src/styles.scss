@@ -28,6 +28,9 @@ body {
     rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
   border: 1px solid #0aad0a;
 }
+.border-main {
+  border: solid 1px $bgColor !important;
+}
 .product .btn {
   opacity: 0;
 
