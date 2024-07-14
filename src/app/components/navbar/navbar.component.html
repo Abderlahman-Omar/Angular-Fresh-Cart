@@ -22,11 +22,7 @@
             >Home</a
           >
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/cart" routerLinkActive="active"
-            >Cart</a
-          >
-        </li>
+
         <li class="nav-item">
           <a class="nav-link" routerLink="/products" routerLinkActive="active"
             >Products</a
@@ -69,8 +65,20 @@
           >
         </li>
         <li *ngIf="isLogin" class="nav-item">
-          <a routerLink="settings" class="nav-link cursor-pointer">Settings</a>
+          <a
+            class="nav-link position-relative"
+            routerLink="/cart"
+            routerLinkActive="active"
+            ><i class="fas fa-cart-shopping text-main fa-lg"></i>
+            <span
+              class="badge bg-main text-white position-absolute top-0 end-0"
+              >{{ cartNumber }}</span
+            ></a
+          >
         </li>
+        <!-- <li *ngIf="isLogin" class="nav-item">
+          <a routerLink="settings" class="nav-link cursor-pointer">Settings</a>
+        </li> -->
       </ul>
     </div>
   </div>

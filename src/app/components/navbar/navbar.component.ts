@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,8 +10,20 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
   isLogin: boolean = false;
-
-  constructor(private authService: AuthService, private router: Router) {
+  cartNumber: number = 0;
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private cartService: CartService
+  ) {
+    cartService.numberOfCartItem.subscribe({
+      next: (response) => {
+        this.cartNumber = response;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
     authService.userData.subscribe({
       next: () => {
         if (authService.userData.getValue() !== null) {

@@ -11,6 +11,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { authGuard } from './guards/auth/auth.guard';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductsComponent } from './components/products/products.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'cart', canActivate: [authGuard], component: CartComponent },
   { path: 'products', canActivate: [authGuard], component: ProductsComponent },
   { path: 'brands', canActivate: [authGuard], component: BrandsComponent },
+  { path: 'checkout', canActivate: [authGuard], component: CheckoutComponent },
   {
     path: 'productdetails/:id',
     canActivate: [authGuard],

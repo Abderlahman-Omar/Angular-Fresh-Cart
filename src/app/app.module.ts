@@ -24,6 +24,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { BuyPipe } from './pipes/buy/buy.pipe';
 import { SeemorePipe } from './pipes/seemore/seemore.pipe';
 import { SearchPipe } from './pipes/search/search.pipe';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SearchPipe } from './pipes/search/search.pipe';
     BuyPipe,
     SeemorePipe,
     SearchPipe,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

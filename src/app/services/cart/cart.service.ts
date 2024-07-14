@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from '../../interfaces/product/product';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +9,15 @@ export class CartService {
   headers: any = {
     token: localStorage.getItem('userToken'),
   };
-  constructor(private httpClient: HttpClient) {}
+  numberOfCartItem = new BehaviorSubject(0);
+  constructor(private httpClient: HttpClient) {
+    this.getLoggedUserCart().subscribe({
+      next: (response) => {
+        this.numberOfCartItem.next(response.numOfCartItems);
+      },
+      error: (error) => console.log(error),
+    });
+  }
 
   addToCart(productId: string): Observable<any> {
     return this.httpClient.post(
@@ -46,6 +53,18 @@ export class CartService {
       {
         count: count,
       },
+      {
+        headers: this.headers,
+      }
+    );
+  }
+  onlinePayment(shippingAddress: any, cartId: string) {
+    return this.httpClient.post(
+      `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:4200`,
+      {
+        shippingAddress: shippingAddress,
+      },
+
       {
         headers: this.headers,
       }

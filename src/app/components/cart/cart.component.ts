@@ -25,6 +25,7 @@ export class CartComponent implements OnInit {
         console.log(response);
 
         this.cartDetails = response.data;
+        this.cartService.numberOfCartItem.next(response.numOfCartItems);
       },
       error: (error) => console.log(error),
     });
