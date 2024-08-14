@@ -11,7 +11,7 @@
   @for (product of products | search:searchTerm ; track $index) {
   <div class="col-md-2">
     <div class="product px-2 py-4">
-      <a [routerLink]="['/productdetails', product._id]">
+      <a>
         <img class="w-100" src="{{ product.imageCover }}" alt="" />
         <span class="text-main fw-bold font-sm">{{
           product.category.name
@@ -35,8 +35,14 @@
           class="btn bg-main text-white w-100 my-2"
         >
           + Add
-        </button></a
-      >
+        </button>
+        <button
+          [routerLink]="['/productdetails', product._id]"
+          class="btn bg-primary text-white w-100 my-2"
+        >
+          Click For Details
+        </button>
+      </a>
     </div>
   </div>
   }
